@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d806161d559a44e1b1b573305c2f482e" Name="Diagram1">
+        <EntityTypeShape EntityType="MedtronicdbModel.PatchPanel" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedtronicdbModel.Pin" Width="1.5" PointX="7.125" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedtronicdbModel.Plano" Width="1.5" PointX="5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedtronicdbModel.Switch" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedtronicdbModel.Usuario" Width="1.5" PointX="5" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="MedtronicdbModel.FK_PatchPanel_Switch" ManuallyRouted="false" />
+        <AssociationConnector Association="MedtronicdbModel.FK_Switch_PatchPanel" ManuallyRouted="false" />
+        <AssociationConnector Association="MedtronicdbModel.FK_Pin_Plano" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
