@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="medtronicdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Nodo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area" Type="varchar" MaxLength="50" />
+    <Property Name="puerto" Type="int" />
+    <Property Name="ip" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="tinyint" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="descripcion" Type="varchar" MaxLength="280" />
+  </EntityType>
+  <EntityType Name="Pin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="x" Type="nvarchar" MaxLength="50" />
+    <Property Name="y" Type="nvarchar" MaxLength="50" />
+    <Property Name="patchIp" Type="varchar" MaxLength="50" />
+    <Property Name="switchIp" Type="varchar" MaxLength="50" />
+    <Property Name="plano" Type="int" />
+  </EntityType>
+  <EntityType Name="Plano">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="70" />
+    <Property Name="img" Type="image" />
+  </EntityType>
+  <EntityType Name="Switch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="ip" Type="varchar" MaxLength="50" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="tinyint" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="100" />
+    <Property Name="clave" Type="varchar" MaxLength="100" />
+    <Property Name="nivel" Type="tinyint" />
+  </EntityType>
+  <Association Name="FK_Pin_Plano">
+    <End Role="Plano" Type="Self.Plano" Multiplicity="0..1" />
+    <End Role="Pin" Type="Self.Pin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plano">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pin">
+        <PropertyRef Name="plano" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="medtronicdbModelStoreContainer">
+    <EntitySet Name="Nodo" EntityType="Self.Nodo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pin" EntityType="Self.Pin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Plano" EntityType="Self.Plano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Switch" EntityType="Self.Switch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Pin_Plano" Association="Self.FK_Pin_Plano">
+      <End Role="Plano" EntitySet="Plano" />
+      <End Role="Pin" EntitySet="Pin" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

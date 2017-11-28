@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="medtronicdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Nodo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="puerto" Type="Int32" />
+    <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Byte" />
+    <Property Name="tipo" Type="Int32" />
+    <Property Name="descripcion" Type="String" MaxLength="280" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Pin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="x" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="y" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="patchIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="switchIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="plano" Type="Int32" />
+    <NavigationProperty Name="Plano1" Relationship="Self.FK_Pin_Plano" FromRole="Pin" ToRole="Plano" />
+  </EntityType>
+  <EntityType Name="Plano">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Pins" Relationship="Self.FK_Pin_Plano" FromRole="Plano" ToRole="Pin" />
+  </EntityType>
+  <EntityType Name="Switch">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Byte" />
+    <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="clave" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="nivel" Type="Byte" />
+  </EntityType>
+  <Association Name="FK_Pin_Plano">
+    <End Role="Plano" Type="Self.Plano" Multiplicity="0..1" />
+    <End Role="Pin" Type="Self.Pin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plano">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Pin">
+        <PropertyRef Name="plano" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="medtronicdbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Nodoes" EntityType="Self.Nodo" />
+    <EntitySet Name="Pins" EntityType="Self.Pin" />
+    <EntitySet Name="Planoes" EntityType="Self.Plano" />
+    <EntitySet Name="Switches" EntityType="Self.Switch" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Pin_Plano" Association="Self.FK_Pin_Plano">
+      <End Role="Plano" EntitySet="Planoes" />
+      <End Role="Pin" EntitySet="Pins" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
