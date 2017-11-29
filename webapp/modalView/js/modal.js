@@ -1,3 +1,10 @@
+// Create parameter
+var puerto = document.getElementById("puerto");
+var ip = document.getElementById("ip");
+var area = document.getElementById("area");
+var tipo = document.getElementById("tipo");
+var estado = document.getElementById("estado");
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -10,7 +17,12 @@ var btn2 = document.getElementById("btnCancel");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function () {
+function mostrar (a,b,c,d,e) {
+	puerto.value = a;
+	ip.value = b;
+	area.value = c;
+	tipo.value = d;
+	estado.value = e;
     modal.style.display = "block";
 }
 

@@ -7,7 +7,7 @@
 
 <body>
     <!-- Trigger/Open The Modal -->
-    <button id="myBtn">Probar Modal</button>
+    <button onClick="mostrar('Hola', '1234', 'Cocina', 1, 0)" id="myBtn">Probar Modal</button>
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -16,29 +16,34 @@
         <div class="modal-content">
             <div class="modal-header">
                 <span class="close">&times;</span>
-                <h2>Informacion de Patch Panel</h2>
+                <h2>Informacion del Nodo</h2>
             </div>
             <div class="modal-body">
-                <form action="js/PatchData.js" >
+                <form>
                     <label for="puerto">Puerto:</label>
-                    <input class="form-styling" type="text" name="puerto">
+                    <input id="puerto" class="form-styling" type="text" name="puerto">
 
                     <label for="ip">IP:</label>
-                    <input class="form-styling" type="text" name="ip">
+                    <input id="ip" class="form-styling" type="text" name="ip">
 
                     <label for="area">Area:</label>
-                    <input class="form-styling" type="text" name="area">
+                    <input id="area" class="form-styling" type="text" name="area">
                     
-                    <label for="tipo">Tipo:</label>
-                    <input class="form-styling" type="text" name="tipo" disabled="true">
-                    
+                    <label for="tipo">Especial</label>
+                    <select id="tipo" class="form-styling" name="tipo">
+                        <option value="0">NO</option>
+                        <option value="1">SI</option>                    
+                    </select>
+                
                     <label for="estado">Estado:</label>
-                    <select class="form-styling" name="estado">
-                        <option value="">Activado</option>
-                        <option value="">Desactivado</option>
-                    </select>                    
-                        <input class="btn-ok" type="submit" value="Actualizar">
-                        <input id="btnCancel" class="btn-ok btn-cancel" type="button" value="Cancel">                                            
+                    <select id="estado" class="form-styling" name="estado">
+                        <option value="1">Activado</option>
+                        <option value="0">Desactivado</option>
+                    </select>                                            
+                        <input id="btnCancel" class="btnModal" type="button" value="Cancelar">
+                        <input class="btnModal btn-Update" type="button" value="Actualizar">
+                        <input class="btnModal btn-delete" type="button" value="Eliminar">                        
+
                 </form>
             </div>
         </div>

@@ -126,16 +126,25 @@ label {
   display: block;
 }
 
-.btn-ok {
+.btnModal {
   height: 35px;
   width: 100px;
-    border: none;
     border-radius: 10px;
-  background-color: #0085CA;
-  color: #FFF;
+  background-color: #FFF;
+  border-style: double;
+  color: #000;
+  cursor: pointer;
 }
 
-.btn-cancel{
-    background-color: red;
+.btn-Update{
+    border-style: none;
+    background-color: #449d44;
+    color: #FFF;
+}
+
+.btn-delete{
+    border-style: none;
+    background-color: #d9534f;
+    color: #FFF;
 }
 
