@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <!-- Trigger/Open The Modal -->
+    <button onClick="mostrar('Hola', '1234', 'Cocina', 1, 0)" id="myBtn">Probar Modal</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Informacion del Nodo</h2>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <label for="puerto">Puerto:</label>
+                    <input id="puerto" class="form-styling" type="text" name="puerto">
+
+                    <label for="ip">IP:</label>
+                    <input id="ip" class="form-styling" type="text" name="ip">
+
+                    <label for="area">Area:</label>
+                    <input id="area" class="form-styling" type="text" name="area">
+                    
+                    <label for="tipo">Especial</label>
+                    <select id="tipo" class="form-styling" name="tipo">
+                        <option value="0">NO</option>
+                        <option value="1">SI</option>                    
+                    </select>
+                
+                    <label for="estado">Estado:</label>
+                    <select id="estado" class="form-styling" name="estado">
+                        <option value="1">Activado</option>
+                        <option value="0">Desactivado</option>
+                    </select>                                            
+                        <input id="btnCancel" class="btnModal" type="button" value="Cancelar">
+                        <input class="btnModal btn-Update" type="button" value="Actualizar">
+                        <input class="btnModal btn-delete" type="button" value="Eliminar">                        
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script type='text/javascript' src='js/modal.js'></script>
+</body>
+
+</html>
