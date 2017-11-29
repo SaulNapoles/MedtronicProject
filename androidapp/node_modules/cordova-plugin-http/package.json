@@ -1,0 +1,60 @@
+{
+  "_from": "git+https://github.com/spuentesp/cordova-HTTP.git",
+  "_id": "cordova-plugin-http@1.2.1",
+  "_inBundle": false,
+  "_integrity": "sha1-+lIm2okA+kz1EEu54LBEaLBRk4s=",
+  "_location": "/cordova-plugin-http",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/spuentesp/cordova-HTTP",
+    "rawSpec": "https://github.com/spuentesp/cordova-HTTP",
+    "saveSpec": "git+https://github.com/spuentesp/cordova-HTTP.git",
+    "fetchSpec": "https://github.com/spuentesp/cordova-HTTP.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/spuentesp/cordova-HTTP.git#d5563c964ab5528e77e5ccfcc9715ecce9b7c8c5",
+  "_spec": "https://github.com/spuentesp/cordova-HTTP",
+  "_where": "/Users/yojona/Proyectos/momo",
+  "author": {
+    "name": "Wymsee"
+  },
+  "bugs": {
+    "url": "https://github.com/wymsee/cordova-HTTP/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-http",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova / Phonegap plugin for communicating with HTTP servers using SSL pinning",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/wymsee/cordova-HTTP#readme",
+  "keywords": [
+    "cordova",
+    "device",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-http",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wymsee/cordova-HTTP.git"
+  },
+  "version": "1.2.1"
+}

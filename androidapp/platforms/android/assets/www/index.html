@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title> Medtronic </title>        
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/master.css">
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
+    
+    <script defer type="text/javascript" src="cordova.js"></script>    
+    <script defer type="text/javascript" src="js/axios.js"></script>
+    <script defer type="text/javascript" src="js/vue.min.js"></script>
+    <script defer type="text/javascript" src="js/app.js"></script>
+    <script defer type="text/javascript" src="js/modal.js"></script>
+    
+
+</head>
+<body>
+
+    <!-- App -->
+    <div id="app">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <img alt="Brand" src="img/logo.png" height="16">
+                    </a>
+                    <div class="pull-right navbar-right">
+                        <button class="btn btn-default navbar-btn" v-on:click="fillPatch()"> Actualizar </button>
+                    </div>  
+                </div>
+            </div>        
+        </nav> 
+            
+        <!-- Patch Panel -->
+        <div id="patchpanel" class="container">
+            <h3> Patch panel management </h3>
+    
+            <section id="patch-panel" class="col-xs-12 col-sm-12 col-md-12">
+                <div class="node pull-left col-xs-2 col-sm-2 col-md-1" v-for="(node, index) in nodes" v-on:click="updateNode(index+1,node.ip,node.area,node.tipo,node.activo, node.id)">
+                    <div v-if="node.activo" class="label-node led-on"> {{index+1}} </div>  
+                    <div v-else class="label-node led-off"> {{index+1}} </div>                         
+                    <img src="img/port.svg" width="100%">
+                </div>
+            </section>          
+        </div>   
+        
+        
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Informacion del Nodo</h2>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" id="isEmpty" hidden>
+                        <label for="puerto">Puerto:</label>
+                        <input id="puerto" class="form-styling" type="text" name="puerto">
+
+                        <label for="ip">IP:</label>
+                        <input id="ip" class="form-styling" type="text" name="ip">
+
+                        <label for="area">Area:</label>
+                        <input id="area" class="form-styling" type="text" name="area">
+                        
+                        <label for="tipo">Especial</label>
+                        <select id="tipo" class="form-styling" name="tipo">
+                            <option value="0">NO</option>
+                            <option value="1">SI</option>                    
+                        </select>
+                    
+                        <label for="estado">Estado:</label>
+                        <select id="estado" class="form-styling" name="estado">
+                            <option value="1">Activado</option>
+                            <option value="0">Desactivado</option>
+                        </select>                                            
+                            <input id="btnCancel" class="btnModal" type="button" value="Cancelar">
+                            <input class="btnModal btn-Update" type="button" value="Actualizar" v-on:click="saveNode">
+                            <input class="btnModal btn-delete" type="button" value="Eliminar" v-on:click="deleteNode">                        
+
+                    </form>
+                </div>
+            </div>
+
+        </div>        
+    </div>
+</body>
+</html>

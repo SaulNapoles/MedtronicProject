@@ -7,10 +7,31 @@ const app           = express()
 
 const port          = process.env.PORT || 1337
 
+let loggedIn = false;
+
 app.use(express.static('assets'));
 
+app.get("/login", (req, res)=>{
+    loggedIn = true;
+    res.redirect("/")   
+    
+})
+
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname+'/home.html'));
+    if(loggedIn)
+        res.redirect("/dashboard")   
+    else
+        res.redirect("/login")   
+    
+})
+
+app.get("/dashboard", (req, res) =>{
+
+    if(loggedIn)
+        res.sendFile(path.join(__dirname+'/home.html'));
+    else
+        res.sendFile(path.join(__dirname+'/login.html'));
+    
 })
 
 app.listen(port, () => {
