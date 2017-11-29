@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Probar Modal</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Informacion de Patch Panel</h2>
+            </div>
+            <div class="modal-body">
+                <form action="js/PatchData.js" >
+                    <label for="puerto">Puerto:</label>
+                    <input class="form-styling" type="text" name="puerto">
+
+                    <label for="ip">IP:</label>
+                    <input class="form-styling" type="text" name="ip">
+
+                    <label for="area">Area:</label>
+                    <input class="form-styling" type="text" name="area">
+                    
+                    <label for="tipo">Tipo:</label>
+                    <input class="form-styling" type="text" name="tipo" disabled="true">
+                    
+                    <label for="estado">Estado:</label>
+                    <select class="form-styling" name="estado">
+                        <option value="">Activado</option>
+                        <option value="">Desactivado</option>
+                    </select>                    
+                        <input class="btn-ok" type="submit" value="Actualizar">
+                        <input id="btnCancel" class="btn-ok btn-cancel" type="button" value="Cancel">                                            
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script type='text/javascript' src='js/modal.js'></script>
+</body>
+
+</html>
