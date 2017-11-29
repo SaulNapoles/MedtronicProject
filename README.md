@@ -4,7 +4,7 @@
 
 ## API REST
 
-| Endpoints     | HTTP verbs    | Returns      |
+| Endpoints     | HTTP verbs    | Examples      |
 | ------------- | ------------- | ------------- |
 | api/Usuarios  | POST/GET      | {id,correo,clave,nivel}|  
 | api/Usuarios/{id}  | GET/PUT/DELETE | {id,correo,clave,nivel} |
